@@ -1,6 +1,6 @@
 (function(){
     // Тут содержится код свайпа менюшки вниз
-    
+    let translateNumber = info.getBoundingClientRect().height - 40;
     let fromInput = document.querySelector('.input-from');
     let whereInput = document.querySelector('.input-where');
     // let carInput = document.querySelector('.input-car');
@@ -26,7 +26,6 @@
 
     // Свайп
     let info = document.querySelector('.order__content');
-    let translateNumber = info.getBoundingClientRect().height - 40;
     let translate = 0;
     let startCoord = 0;
     let curCoord = 0;
@@ -41,7 +40,7 @@
                 if (translate > 70) {
                     translate = translateNumber;
                     info.style.transform = `translateY(${translate}px)`;
-                    info.style.transform = '-100%';
+                    // info.style.transform = '-100%';
                     closed = true;
                 }
                 else{
