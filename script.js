@@ -11,7 +11,8 @@
         let from, where, firstGeoObject, secondGeoObject;
         var myMap = new ymaps.Map("map", {
             center: [52.487893,29.287772],
-            zoom: 9
+            zoom: 9,
+            controls: [],
         });
         // Добавляю формы поиска
         var suggestFrom = new ymaps.SuggestView('from');
