@@ -2,7 +2,14 @@
     // Тут содержится код свайпа менюшки вниз
     let info = document.querySelector('.order__content');
     let translateNumber = info.getBoundingClientRect().height - 40;
-    
+    window.translateNumber = translateNumber;
+    let where = document.querySelector('#where');
+    let from = document.querySelector('#from');
+    let onInputChange = function () {
+        window.translateNumber = info.getBoundingClientRect().height - 40;
+    }
+    from.addEventListener('change', onInputChange);
+    where.addEventListener('change', onInputChange);
     let fromInput = document.querySelector('.input-from');
     let whereInput = document.querySelector('.input-where');
     // let carInput = document.querySelector('.input-car');
@@ -13,12 +20,12 @@
         if (fromInput.value && whereInput.value) { // && carInput.value
             phone.classList.add('dn');
             total.classList.remove('dn');
-            translateNumber = info.getBoundingClientRect().height - 40;
+            window.translateNumber = info.getBoundingClientRect().height - 40;
         }
         else{
             phone.classList.remove('dn');
             total.classList.add('dn');
-            translateNumber = info.getBoundingClientRect().height - 40;
+            window.translateNumber = info.getBoundingClientRect().height - 40;
         }
     }
     // Добавляю функцию всем 3 инпутам
@@ -39,7 +46,7 @@
             info.style.transition = '0.3s ease';
             if (!closed) {
                 if (translate > 70) {
-                    translate = translateNumber;
+                    translate = window.translateNumber;
                     info.style.transform = `translateY(${translate}px)`;
                     // info.style.transform = '-100%';
                     closed = true;
@@ -64,7 +71,7 @@
             curCoord = evt.clientY || evt.touches[0].pageY;
             translate+=(curCoord - startCoord);
             // document.write(evt.clientY, ' --- ',startCoord);
-            if (translate > 0 && translate < translateNumber) {
+            if (translate > 0 && translate < window.translateNumber) {
                 info.style.transform = `translateY(${translate}px)`;
             }
             startCoord = curCoord;
