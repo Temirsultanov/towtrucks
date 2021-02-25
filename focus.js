@@ -9,11 +9,11 @@
             where.focus();
         }
     }
-    // let onWhereEnter = function (evt) {
-    //     if (evt.keyCode === 13) {
-    //         car.focus();
-    //     }
-    // }
+    let onWhereEnter = function (evt) {
+        if (evt.keyCode === 13) {
+            where.blur();
+        }
+    }
     let onInputFocus = function (evt) {
         order.classList.add('order-on-top');
 
@@ -22,7 +22,7 @@
         order.classList.remove('order-on-top');
     }
     from.addEventListener('keydown', onFromEnter);
-    // where.addEventListener('keydown', onWhereEnter);
+    where.addEventListener('keydown', onWhereEnter);
     if (device.indexOf('Android') > -1) {
         from.addEventListener('focus', onInputFocus);
         where.addEventListener('focus', onInputFocus);
