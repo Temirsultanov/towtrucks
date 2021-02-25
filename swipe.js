@@ -2,7 +2,6 @@
     // Тут содержится код свайпа менюшки вниз
     let info = document.querySelector('.order__content');
     let translateNumber = info.getBoundingClientRect().height - 40;
-    window.translateNumber = translateNumber;
     let where = document.querySelector('#where');
     let from = document.querySelector('#from');
     let onInputChange = function () {
@@ -20,12 +19,15 @@
         if (fromInput.value && whereInput.value) { // && carInput.value
             phone.classList.add('dn');
             total.classList.remove('dn');
-            window.translateNumber = info.getBoundingClientRect().height - 40;
+            translateNumber = info.getBoundingClientRect().height - 40;
+            if (window.navigator.userAgent.indexOf('Android') > -1) {
+                translateNumber = 320;
+            }
         }
         else{
             phone.classList.remove('dn');
             total.classList.add('dn');
-            window.translateNumber = info.getBoundingClientRect().height - 40;
+            translateNumber = info.getBoundingClientRect().height - 40;
         }
     }
     // Добавляю функцию всем 3 инпутам
@@ -46,7 +48,7 @@
             info.style.transition = '0.3s ease';
             if (!closed) {
                 if (translate > 70) {
-                    translate = window.translateNumber;
+                    translate = translateNumber;
                     info.style.transform = `translateY(${translate}px)`;
                     // info.style.transform = '-100%';
                     closed = true;
@@ -71,7 +73,7 @@
             curCoord = evt.clientY || evt.touches[0].pageY;
             translate+=(curCoord - startCoord);
             // document.write(evt.clientY, ' --- ',startCoord);
-            if (translate > 0 && translate < window.translateNumber) {
+            if (translate > 0 && translate < translateNumber) {
                 info.style.transform = `translateY(${translate}px)`;
             }
             startCoord = curCoord;
