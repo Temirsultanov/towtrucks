@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=c3cf5c08-8a2a-4dcb-a108-adf6fd96acfa&lang=ru_RU" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Tow Trucks</title>
+</head>
+<body>
+    <main class=order>
+        <nav class="map" id="map">
+            
+        </nav>
+        <div class="oops__wrap dn">
+            <div class="oops component">
+                <h1 class="h1">Упс!</h1>
+                <h4 class="h4">Извините, все эвакуаторы заняты. повторите попытку позже</h4>
+            </div>
+        </div>
+
+        <div class="order__content">
+            <div class="summon component">
+                <div class="swipe-handle"></div>
+                <h1 class="h1">Вызвать эвакуатор</h1>
+                <input type="text" id="from" class="input input-from" placeholder="Откуда?">
+                <input type="text" id="where" class="input input-where" placeholder="Куда?">
+                <!-- <input type="text" class="input input-car" placeholder="Авто"> -->
+                <div class="car-select">
+                    <button class="car__buttons car__button-light">Легковое авто</button>
+                    <button class="car__buttons car__button-4x4 car__buttons-active">Внедорожник</button>
+                    <button class="car__buttons car__button-moto">Мотоцикл</button>
+                </div>
+                <div class="onlycash">
+                    <h6 class="rubsign h6">₽</h6>
+                    <h5 class="h5">Оплата наличными</h5>
+                </div>
+                <div class="total dn">
+                    <div class="cost">
+                        <h3 class="h3">Итого</h3>
+                        <svg class="total__dash" width="193" height="2" viewBox="0 0 380 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0.8125" y1="1.3584" x2="492.799" y2="1.3584" stroke="#D1D1D1" stroke-dasharray="10 10"/>
+                        </svg>    
+                        <h3 class="h3 violet totalcost">1498₽</h3>
+                    </div>
+                    <button class="button oops__button">Вызвать</button>
+                </div>
+            </div>
+            <div class="phone component">
+                <div class="phone__text">
+                    <h2 class="h2">Удобней по телефону?</h2>
+                    <h4 class="h4">Наши операторы быстро ответят и проконсультируют по всем вопрсам</h4>
+                </div>
+                <button class="button oops__button">Позвонить</button>
+            </div>
+        </div>
+        <div class="cash__wrap dn">
+            <div class="cash component">
+                <h1 class="h1">Оплата</h1>
+                <h4 class="h4">Оплата производится наличными водителю эвакуатора</h4>
+                <button class="button ok__button">Ok</button>
+            </div>
+        </div>
+    </main>
+    <script src="oops.js"></script>
+    <script src="swipe.js"></script>
+    <script src="script.js"></script>
+    <script src="focus.js"></script>
+    <script src="carselect.js"></script>
+    <script src="cash.js"></script>
+</body>
+</html>
