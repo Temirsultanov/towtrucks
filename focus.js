@@ -16,7 +16,6 @@
     // }
     let onInputFocus = function (evt) {
         order.classList.add('order-on-top');
-        document.write(device);
     }
     let onInputBlur = function (evt) {
         order.classList.remove('order-on-top');
