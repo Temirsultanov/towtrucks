@@ -12,6 +12,7 @@
     let onWhereEnter = function (evt) {
         if (evt.keyCode === 13) {
             where.blur();
+            document.body.focus();
         }
     }
     let onInputFocus = function (evt) {
