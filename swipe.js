@@ -1,6 +1,8 @@
 (function(){
     // Тут содержится код свайпа менюшки вниз
+    let info = document.querySelector('.order__content');
     let translateNumber = info.getBoundingClientRect().height - 40;
+    
     let fromInput = document.querySelector('.input-from');
     let whereInput = document.querySelector('.input-where');
     // let carInput = document.querySelector('.input-car');
@@ -25,7 +27,6 @@
     // carInput.addEventListener('input', onInput);
 
     // Свайп
-    let info = document.querySelector('.order__content');
     let translate = 0;
     let startCoord = 0;
     let curCoord = 0;
