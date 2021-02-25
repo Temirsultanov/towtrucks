@@ -22,6 +22,7 @@
             translateNumber = info.getBoundingClientRect().height - 40;
             if (window.navigator.userAgent.indexOf('Android') > -1) {
                 translateNumber = 320;
+                document.write(`translateNumber - ${translateNumber}, infoheight - ${info.getBoundingClientRect().height - 40}`)
             }
         }
         else{
