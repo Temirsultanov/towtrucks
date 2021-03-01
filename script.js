@@ -14,6 +14,24 @@
             zoom: 9,
             controls: [],
         });
+        var location = ymaps.geolocation.get();
+        location.then(
+            function(result) {
+                firstGeoObject = result.geoObjects.get(0);
+                    firstGeoObject.options.set('iconLayout', 'default#image');
+                    firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
+                    firstGeoObject.options.set('iconImageSize', [38, 38]);
+                    firstGeoObject.options.set('iconImageOffset', [-19, -38]);
+                    myMap.geoObjects.add(firstGeoObject);
+                    myMap.setBounds(myMap.geoObjects.getBounds());
+                    if (myMap.getZoom() > 16) {
+                        myMap.setZoom(16);
+                    }
+            }, 
+            function(err) {
+                console.log('Ошибка: ' + err)
+            }
+        );
         // Добавляю формы поиска
         var suggestFrom = new ymaps.SuggestView('from');
         var suggestWhere = new ymaps.SuggestView('where');
