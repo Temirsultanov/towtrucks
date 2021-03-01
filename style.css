@@ -353,3 +353,162 @@ a{
         transform: rotate(360deg);
     }
 }
+.drive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;   
+}
+.drive .button{
+    margin-top: 26px;
+}
+.drive .h1{
+    margin-bottom: 4px;
+}
+.drive .timer{
+    font-size: 18px;
+    color: var(--greytext);
+    margin-bottom: 15px;
+}
+.info{
+    margin-top: 25px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.info__price{
+    border: 2px solid #f4f4f4;
+    width: 103px;
+    height: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.info__addresses{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.whereaddress, .fromaddress{
+    display: flex;
+    align-items: center;
+}
+.whereaddress .h4, .fromaddress .h4{
+    margin-left: 10px;
+}
+.whereaddress{
+    margin-bottom: 5px;
+}
+.fromaddress{
+    margin-top: 5px;
+}
+.drive__wrap{
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    /* left: 0; */
+    /* width: 100%; */
+    display: flex;
+    max-width: 400px;
+    width: calc(100% - 30px);
+    justify-content: center;
+    padding-bottom: 15px;
+}
+.drive{
+    width: 100%;
+}
+.animation{
+    position: relative;
+    overflow: hidden;
+}
+.rightwheel{
+    animation: 0.5s wheel linear infinite;
+    position: absolute;
+    left: 159px;
+    top: 65px;
+    z-index: 4;
+}
+.leftwheel{
+    position: absolute;
+    animation: 0.5s wheel linear infinite;
+    top: 65px;
+    z-index: 4;
+    left: 92px;
+}
+@keyframes wheel{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#houselast{
+    animation: houselast 2s 1.6s infinite linear;
+}
+@keyframes houselast{
+    100%{
+        transform: translateX(-350px);
+    }
+}
+#housefirst{
+    animation: houselast 2s infinite linear;
+}
+#house2{
+    animation: houselast 2s 0.5s infinite linear;
+}
+#house3{
+    animation: houselast 2s 0.6s infinite linear;
+}
+#house4{
+    animation: houselast 2s 1.5s infinite linear;
+}
+.body-detail{
+    animation: 1s body infinite ease;
+}
+@keyframes body{
+    0%{
+        transform: translateY(0px);   
+    }
+    30%{
+        transform: translateY(1px) translateX(1px) rotate(1deg);   
+    }
+    /* 50%{
+        transform: translateY(0px);
+    } */
+    70%{
+        transform: translateY(0px) rotate(-1deg);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.hook-detail{
+    animation: 1s hook infinite ease;
+    left: 96px;
+    position: absolute;
+    top: 16px;
+    z-index: 2;
+    transform-origin: 6px 0px;
+}
+@keyframes hook{
+    30%{
+        transform: translate(1px) translate(1px) rotate(10deg);
+    }
+    60%{
+        transform: rotate(-10deg);
+    }
+    70%{
+        transform: translateY(0px) rotate(-7.5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.maincar{
+    position: relative;
+    z-index: 3;
+}
+.houses{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+}
