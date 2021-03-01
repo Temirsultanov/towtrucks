@@ -14,6 +14,8 @@
             zoom: 9,
             controls: [],
         });
+        var suggestFrom = new ymaps.SuggestView('from');
+        var suggestWhere = new ymaps.SuggestView('where');
         var location = ymaps.geolocation.get();
         location.then(
             function(result) {
@@ -27,14 +29,15 @@
                     if (myMap.getZoom() > 16) {
                         myMap.setZoom(16);
                     }
+                    from = firstGeoObject.properties._data.text;
+                    suggestFrom._panel._anchor.value = from;
+                    console.log(suggestFrom);
             }, 
             function(err) {
                 console.log('Ошибка: ' + err)
             }
         );
         // Добавляю формы поиска
-        var suggestFrom = new ymaps.SuggestView('from');
-        var suggestWhere = new ymaps.SuggestView('where');
         // На изменение инпута ставлю переменной значение
         let onFromChange = function () {
             from = suggestFrom.state.get('request');
