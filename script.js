@@ -1,5 +1,4 @@
 (function(){   
-    // Изначально прописываю высоту сайта, нахожу инпуты "Оттуда", "туда". Добавляю переменные, которые будут равны input.value
     document.body.style.height = `${window.innerHeight}px`;
     window.addEventListener('resize', function(){
         document.body.style.height = `${window.innerHeight}px`;
@@ -7,7 +6,6 @@
 
     ymaps.ready(init);
     function init(){
-        // Добавляю начальный центр карты и зум
         let from, where, firstGeoObject, secondGeoObject;
         var myMap = new ymaps.Map("map", {
             center: [52.487893,29.287772],
@@ -31,14 +29,11 @@
                     }
                     from = firstGeoObject.properties._data.text;
                     suggestFrom._panel._anchor.value = from;
-                    console.log(suggestFrom);
             }, 
             function(err) {
-                console.log('Ошибка: ' + err)
+                console.log('Ошибка: ' + err);
             }
         );
-        // Добавляю формы поиска
-        // На изменение инпута ставлю переменной значение
         let onFromChange = function () {
             from = suggestFrom.state.get('request');
             myMap.geoObjects.remove(firstGeoObject);

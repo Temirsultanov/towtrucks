@@ -279,7 +279,7 @@ a{
 }
 
 /* Упс! */
-.oops__wrap, .cash__wrap{
+.oops__wrap, .cash__wrap, .phoneinput__wrap{
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -298,10 +298,10 @@ a{
     height: 180px;
     padding: 40px 30px;
 }
-.oops .h1, .cash .h1{
+.oops .h1, .cash .h1, .phoneinput .h1{
     margin-bottom: 12px;
 }
-.oops .h4, .cash .h4{
+.oops .h4, .cash .h4, .phoneinput .h4{
     text-align: center;
 }
 .cash .button{
@@ -312,4 +312,44 @@ a{
     flex-direction: column;
     align-items: center;
     padding: 40px 30px;
+}
+.phoneinput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+}
+.phoneinput .input{
+    margin-top: 20px;
+}
+.phoneinput .button{
+    margin-top: 15px;
+}
+.phoneinput .h4{
+    width: 280px;
+}
+.input-phone{
+    background-image: url(images/phone.svg);
+    background-repeat: no-repeat;
+    background-position: 18px 10px; 
+}
+.searching .h4{
+    color: white;
+    margin-top: 17px;
+}
+.searching{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loading svg{
+    animation: loading 1s infinite;
+}
+@keyframes loading{
+    0%{
+
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }

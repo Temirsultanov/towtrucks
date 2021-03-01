@@ -16,10 +16,27 @@
         <nav class="map" id="map">
             
         </nav>
-        <div class="oops__wrap dn">
+        <!-- <div class="oops__wrap dn">
             <div class="oops component">
                 <h1 class="h1">Упс!</h1>
                 <h4 class="h4">Извините, все эвакуаторы заняты. повторите попытку позже</h4>
+            </div>
+        </div> -->
+
+        <div class="phoneinput__wrap dn">
+            <div class="phoneinput component">
+                <h1 class="h1">Номер телефона</h1>
+                <h4 class="h4">Мы уже ищем эвакуатор. А пока введите номер телефона, чтобы нам было проще с вами связаться</h4>
+                <input type="text" id="phone" class="input input-phone" value="+7(___)___-__-__">
+                <button class="button ready__button">Готово</button>
+            </div>
+            <div class="searching dn">
+                <div class="loading">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30.4944 16C31.3259 16 32.0074 15.3244 31.9292 14.4966C31.6549 11.5898 30.589 8.80292 28.8341 6.44561C26.7784 3.68432 23.887 1.65966 20.5892 0.672275C17.2914 -0.315107 13.7631 -0.212546 10.5282 0.964727C7.29332 2.142 4.52439 4.3312 2.6326 7.20723C0.740815 10.0833 -0.172945 13.4928 0.0270153 16.9294C0.226976 20.366 1.52999 23.6465 3.74257 26.2837C5.95515 28.921 8.95929 30.7743 12.3089 31.5684C15.1684 32.2464 18.1495 32.1216 20.9273 31.2224C21.7184 30.9663 22.069 30.0731 21.7397 29.3095C21.4104 28.546 20.526 28.2031 19.7295 28.4419C17.5522 29.0945 15.2324 29.1669 13.0035 28.6384C10.2843 27.9937 7.84559 26.4892 6.04942 24.3483C4.25325 22.2074 3.19546 19.5443 3.03313 16.7545C2.8708 13.9646 3.61259 11.1968 5.14835 8.86203C6.6841 6.52727 8.93192 4.75008 11.558 3.79437C14.1841 2.83865 17.0484 2.7554 19.7255 3.55695C22.4027 4.35851 24.7499 6.00213 26.4187 8.24375C27.7865 10.0811 28.6388 12.2399 28.9016 14.4977C28.9978 15.3237 29.6629 16 30.4944 16Z" fill="white"/>
+                    </svg>    
+                </div>
+                <h4 class="h4">Поиск машины...</h4>
             </div>
         </div>
 
@@ -47,7 +64,7 @@
                         </svg>    
                         <h3 class="h3 violet totalcost">1498₽</h3>
                     </div>
-                    <button class="button oops__button">Вызвать</button>
+                    <button class="button oops__button phoneinput__button">Вызвать</button>
                 </div>
             </div>
             <div class="phone component">
@@ -55,7 +72,7 @@
                     <h2 class="h2">Удобней по телефону?</h2>
                     <h4 class="h4">Наши операторы быстро ответят и проконсультируют по всем вопрсам</h4>
                 </div>
-                <button class="button oops__button">Позвонить</button>
+                <a href="tel:+79286730304" class="button">Позвонить</a>
             </div>
         </div>
         <div class="cash__wrap dn">
@@ -66,7 +83,9 @@
             </div>
         </div>
     </main>
-    <script src="oops.js"></script>
+    <!-- <script src="oops.js"></script> -->
+    <script src="searching.js"></script>
+    <script src="phoneinput.js"></script>
     <script src="swipe.js"></script>
     <script src="script.js"></script>
     <script src="focus.js"></script>
