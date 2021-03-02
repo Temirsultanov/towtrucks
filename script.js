@@ -3,6 +3,11 @@
     window.addEventListener('resize', function(){
         document.body.style.height = `${window.innerHeight}px`;
     });
+    window.totalcost = 2200;
+    window.fromaddress = '';
+    window.whereaddress = '';
+    window.type = '4x4';
+    window.phone = '';
 
     ymaps.ready(init);
     function init(){

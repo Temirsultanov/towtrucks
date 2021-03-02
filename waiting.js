@@ -15,5 +15,10 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
+    console.log(window.totalcost);
+    console.log(window.whereaddress);
+    console.log(window.fromaddress);
+    console.log(window.type);
+    console.log(window.phone);
 };
 window.waiting = waiting;

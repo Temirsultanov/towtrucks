@@ -6,6 +6,11 @@
     let onButtonClick = function () {
         phoneinput.classList.remove('dn');
         order.classList.add('dn');
+        window.fromaddress = document.querySelector('#from').value;
+        window.whereaddress = document.querySelector('#where').value;
+        document.querySelector('.fromaddress').querySelector('.h4').textContent = window.fromaddress;
+        document.querySelector('.whereaddress').querySelector('.h4').textContent = window.whereaddress;
+        document.querySelector('.info__price').textContent = window.totalcost + '₽';
     }
     buttons.forEach(button => {
         button.addEventListener('click', onButtonClick);

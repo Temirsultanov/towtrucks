@@ -7,6 +7,7 @@
     let totalCost
     let onReadyButtonClick = function () {
         phoneInput.classList.add('dn');
+        window.phone = document.querySelector('#phone').value;
         searching.classList.remove('dn');
         setTimeout(() => {
             searching.classList.add('dn');

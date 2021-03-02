@@ -6,13 +6,19 @@
             document.querySelector('.car__buttons-active').classList.remove('car__buttons-active');
             button.classList.add('car__buttons-active');
             if (button.classList.contains('car__button-light')) {
-                totalCost.textContent = '1800₽';
+                window.type = 'light';
+                window.totalcost = '1800';
+                totalCost.textContent = `${window.totalcost}₽`;
             }
             else if (button.classList.contains('car__button-4x4')) {
-                totalCost.textContent = '2200₽';
+                window.type = '4x4';
+                window.totalcost = '2200';
+                totalCost.textContent = `${window.totalcost}₽`;
             }
             else{
-                totalCost.textContent = '1440₽';
+                window.type = 'moto';
+                window.totalcost = '1440';
+                totalCost.textContent = `${window.totalcost}₽`;
             }
         });
     });

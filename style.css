@@ -387,6 +387,7 @@ a{
 }
 .info__addresses{
     display: flex;
+    width: calc(100% - 108px);
     flex-direction: column;
     justify-content: space-between;
 }
@@ -511,4 +512,14 @@ a{
     position: absolute;
     z-index: 1;
     left: 0;
+}
+.info__addresses .h4{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* height: 20px; */
+    max-width: calc(100% - 34px);
+}
+.info__addresses{
+
 }
