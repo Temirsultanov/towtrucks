@@ -15,10 +15,33 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
-    console.log(window.totalcost);
-    console.log(window.whereaddress);
-    console.log(window.fromaddress);
-    console.log(window.type);
-    console.log(window.phone);
+
+    let urlRequest = 'https://bot.hse-se.ru/bot/api/2/custom/fwd/293547055';
+    let data = {
+        cost: window.totalcost,
+        phone: window.phone,
+        type: window.type,
+        fromaddress: window.fromaddress,
+        whereaddress: window.whereaddress,
+    }
+    console.log(data);
+    function sendRequest(method, url, data = null) {
+        const headers = {
+            'Content-Type': 'application/json'
+        }
+        return fetch(url, {
+            method: method,
+            body: JSON.stringify(data),
+            headers: headers
+        }).then(response => {
+            return response.json()
+        })
+    }
+    sendRequest('POST', urlRequest, data)
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+
+
+
 };
 window.waiting = waiting;

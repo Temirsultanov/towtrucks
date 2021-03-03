@@ -8,6 +8,7 @@
     window.whereaddress = '';
     window.type = '4x4';
     window.phone = '';
+    document.querySelector('.totalcost').textContent = window.totalcost + '₽';
 
     ymaps.ready(init);
     function init(){
