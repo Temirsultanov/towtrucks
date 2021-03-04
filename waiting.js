@@ -17,31 +17,27 @@ let waiting = function () {
     }, 1000);
 
     let urlRequest = 'https://bot.hse-se.ru/bot/api/2/custom/fwd/293547055';
-    let data = {
-        cost: window.totalcost,
+    let myData = {
         phone: window.phone,
+        cost: window.totalcost,
+        from: window.fromaddress.trim(),
+        where: window.whereaddress.trim(),
         type: window.type,
-        fromaddress: window.fromaddress,
-        whereaddress: window.whereaddress,
     }
-    console.log(data);
-    function sendRequest(method, url, data = null) {
-        const headers = {
-            'Content-Type': 'application/json'
-        }
+    function sendRequest(url, body) {
         return fetch(url, {
-            method: method,
-            body: JSON.stringify(data),
-            headers: headers
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
         }).then(response => {
             return response.json()
         })
     }
-    sendRequest('POST', urlRequest, data)
+    sendRequest(urlRequest, myData)
         .then(data => console.log(data))
         .catch(err => console.log(err));
-
-
 
 };
 window.waiting = waiting;
