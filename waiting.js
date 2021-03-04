@@ -21,7 +21,7 @@ let waiting = function () {
         phone: window.phone,
         cost: window.totalcost,
         from: window.fromaddress.trim(),
-        where: window.whereaddress.trim(),
+        to: window.whereaddress.trim(),
         type: window.type,
     }
     function sendRequest(url, body) {
