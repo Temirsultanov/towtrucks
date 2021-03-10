@@ -127,6 +127,8 @@ a{
     font-size: 16px;
     font-family: var(--font);
     color: var(--lightblacktext);
+    border: 1px solid var(--lightgrey);
+    transition: border 0.3s ease;
 }
 .input::placeholder{
     font-size: 16px;
@@ -140,6 +142,9 @@ a{
 }
 .dn{
     display: none !important; 
+}
+.invalid{
+    border: 1px solid #FF3333;
 }
 
 /* Начало */
@@ -266,6 +271,9 @@ a{
 .total{
     width: 100%;
     margin-top: 10px;
+}
+.summon .phoneinput__button{
+    margin-top: 19px;
 }
 .total__dash{
     width: calc(100% - 110px);

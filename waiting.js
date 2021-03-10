@@ -15,15 +15,18 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
-
-    let urlRequest = 'https://bot.hse-se.ru/bot/api/2/custom/fwd/293547055';
+    let urlRequest = 'https://bot.hse-se.ru/bot/api/2/custom/fwd/833530188';
+    let date = new Date();
+    let id = `${(date.getMonth() + 1 > 9 ? date.getMonth() + 1: '0' + (date.getMonth() + 1))}${date.getDate() > 9 ? date.getDate() : '0' + date.getDate()}${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}`;
     let myData = {
-        phone: window.phone,
+        id: ' ' + id,
+        phone: window.phone.slice(1, window.phone.length),
         cost: window.totalcost,
         from: window.fromaddress.trim(),
         to: window.whereaddress.trim(),
         type: window.type,
     }
+    console.log(myData);
     function sendRequest(url, body) {
         return fetch(url, {
             method: 'POST',

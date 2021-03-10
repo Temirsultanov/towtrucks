@@ -9,7 +9,6 @@
     window.type = '4x4';
     window.phone = '';
     document.querySelector('.totalcost').textContent = window.totalcost + '₽';
-
     ymaps.ready(init);
     function init(){
         let from, where, firstGeoObject, secondGeoObject;
@@ -24,6 +23,7 @@
         location.then(
             function(result) {
                 firstGeoObject = result.geoObjects.get(0);
+                    document.querySelector('#from').classList.remove('invalid');
                     firstGeoObject.options.set('iconLayout', 'default#image');
                     firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
                     firstGeoObject.options.set('iconImageSize', [38, 38]);
@@ -47,7 +47,7 @@
                 results: 1
             }).then(function (res) {
                     firstGeoObject = res.geoObjects.get(0);
-                    var coords1 = firstGeoObject.geometry.getCoordinates(), bounds1 = firstGeoObject.properties.get('boundedBy');
+                    document.querySelector('#from').classList.remove('invalid');
                     firstGeoObject.options.set('iconLayout', 'default#image');
                     firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
                     firstGeoObject.options.set('iconImageSize', [38, 38]);
@@ -66,7 +66,7 @@
                 results: 1
             }).then(function (res) {
                     secondGeoObject = res.geoObjects.get(0);
-                    var coords2 = secondGeoObject.geometry.getCoordinates(), bounds2 = secondGeoObject.properties.get('boundedBy');
+                    document.querySelector('#where').classList.remove('invalid');
                     secondGeoObject.options.set('iconLayout', 'default#image');
                     secondGeoObject.options.set('iconImageHref', 'images/violetlocationmap.svg');
                     secondGeoObject.options.set('iconImageSize', [38, 38]);
@@ -84,5 +84,4 @@
         suggestWhere.events.add('select', onWhereChange);
         suggestWhere.events.add('change', onWhereChange);
     }
-
 })()
