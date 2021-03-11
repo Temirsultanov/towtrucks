@@ -24,7 +24,7 @@
     }
     from.addEventListener('keydown', onFromEnter);
     where.addEventListener('keydown', onWhereEnter);
-    if (device.indexOf('Android') > -1) {
+    if (device.indexOf('Mobile') > -1) {
         from.addEventListener('focus', onInputFocus);
         where.addEventListener('focus', onInputFocus);
         from.addEventListener('blur', onInputBlur);
