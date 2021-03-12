@@ -15,7 +15,7 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
-    let urlRequest = 'http://92.63.105.87:3001/order/makeOrder/293547055';
+    let urlRequest = 'https://92.63.105.87:3001/order/makeOrder/293547055';
     let date = new Date();
     let id = `${(date.getMonth() + 1 > 9 ? date.getMonth() + 1: '0' + (date.getMonth() + 1))}${date.getDate() > 9 ? date.getDate() : '0' + date.getDate()}${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}`;
     let myData = {
@@ -32,7 +32,7 @@ let waiting = function () {
             method: 'POST',
             body: JSON.stringify(body),
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             }
         }).then(response => {
             return response.json()
