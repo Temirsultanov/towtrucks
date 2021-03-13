@@ -101,6 +101,34 @@
         });
         var suggestFrom = new ymaps.SuggestView('from');
         var suggestWhere = new ymaps.SuggestView('where');
+        var location = ymaps.geolocation.get();
+        location.then(
+            function(result) {
+                firstGeoObject = result.geoObjects.get(0);
+                    document.querySelector('#from').classList.remove('invalid');
+                    if (secondGeoObject && firstGeoObject) {
+                        total.classList.remove('dn');
+                        translateNumber = info.getBoundingClientRect().height - 40;
+                        if (window.navigator.userAgent.indexOf('Android') > -1) {
+                            translateNumber = 320;
+                        }
+                    }
+                    firstGeoObject.options.set('iconLayout', 'default#image');
+                    firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
+                    firstGeoObject.options.set('iconImageSize', [38, 38]);
+                    firstGeoObject.options.set('iconImageOffset', [-19, -38]);
+                    myMap.geoObjects.add(firstGeoObject);
+                    myMap.setBounds(myMap.geoObjects.getBounds());
+                    if (myMap.getZoom() > 16) {
+                        myMap.setZoom(16);
+                    }
+                    from = firstGeoObject.properties._data.text;
+                    suggestFrom._panel._anchor.value = from;
+            }, 
+            function(err) {
+                console.log('Ошибка: ' + err);
+            }
+        );
         let onFromChange = function () {
             from = suggestFrom.state.get('request');
             myMap.geoObjects.remove(firstGeoObject);
@@ -154,39 +182,6 @@
                 });
             
         }
-        let onFromClick = function () {
-            if (!firstGeoObject) {
-                var location = ymaps.geolocation.get();
-                location.then(
-                    function(result) {
-                        firstGeoObject = result.geoObjects.get(0);
-                            document.querySelector('#from').classList.remove('invalid');
-                            if (secondGeoObject && firstGeoObject) {
-                                total.classList.remove('dn');
-                                translateNumber = info.getBoundingClientRect().height - 40;
-                                if (window.navigator.userAgent.indexOf('Android') > -1) {
-                                    translateNumber = 320;
-                                }
-                            }
-                            firstGeoObject.options.set('iconLayout', 'default#image');
-                            firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
-                            firstGeoObject.options.set('iconImageSize', [38, 38]);
-                            firstGeoObject.options.set('iconImageOffset', [-19, -38]);
-                            myMap.geoObjects.add(firstGeoObject);
-                            myMap.setBounds(myMap.geoObjects.getBounds());
-                            if (myMap.getZoom() > 16) {
-                                myMap.setZoom(16);
-                            }
-                            from = firstGeoObject.properties._data.text;
-                            suggestFrom._panel._anchor.value = from;
-                    }, 
-                    function(err) {
-                        console.log('Ошибка: ' + err);
-                    }
-                );
-            }
-        }
-        document.querySelector('#from').addEventListener('click', onFromClick);
         suggestFrom.events.add('select', onFromChange);
         suggestFrom.events.add('change', onFromChange);
         suggestWhere.events.add('select', onWhereChange);
