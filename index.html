@@ -8,7 +8,9 @@
     <script src="https://unpkg.com/imask"></script>
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <title>Vozex — вызов эвакуатора</title>
+    <title>Заказать эвакуатор в Тюмени недорого рядом с вами - Vozex</title>
+    <meta name="keywords" content="Эвакуатор, Заказать Эвакуатор, вызвать эвакуатор, услуги эвакуатора, эвакуатор Тюмень, эвакуатор недорого">
+    <meta name="description" content="Вызвать эвакуатор в Тюмени дёшево. Цены от 1000₽. Вызов онлайн. Можно не звонить. Быстрая подача. Все типы автомобилей">
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -117,16 +119,38 @@
                 <input type="text" id="from" class="input input-from" placeholder="Откуда?">
                 <input type="text" id="where" class="input input-where" placeholder="Куда?">
                 <!-- <input type="text" class="input input-car" placeholder="Авто"> -->
-                <div class="car-select">
+                <!-- <div class="car-select">
                     <button class="car__buttons car__button-light">Легковая</button>
                     <button class="car__buttons car__button-4x4 car__buttons-active">Внедорожник</button>
                     <button class="car__buttons car__button-moto">Мотоцикл</button>
+                </div> -->
+                <div class="tech-select">
+                    <div class="tech__item tech__item-partload">
+                        <h5 class="tech__text">Частичная погрузка</h5>
+                        <h5 class="tech__price">1000руб.</h5>
+                        <img src="images/partload.svg" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__item tech__item-platform tech__item-active">
+                        <h5 class="tech__text">Платформа</h5>
+                        <h5 class="tech__price">1900руб.</h5>
+                        <img src="images/platform.svg" alt="" class="tech__img">
+                    </div>
+                    <div class="tech__item tech__item-manipulator">
+                        <h5 class="tech__text">Манипулятор</h5>
+                        <h5 class="tech__price">2500руб.</h5>
+                        <img src="images/manipulator.svg" alt="" class="tech__img">
+                    </div>
                 </div>
+                <form action="http://92.63.105.87:443/order/makeOrder/458946670" method="GET">
+                    
+                </form>
+                <h3 class="tech__name">Платформа</h3>
+                <h3 class="tech__desc">Оптимальный вариант для большинства случаев. Машину закатывают на платформу</h3>
                 <div class="onlycash">
                     <h6 class="rubsign h6">₽</h6>
                     <h5 class="h5">Оплата наличными</h5>
                 </div>
-                <div class="total dn">
+                <!-- <div class="total dn">
                     <div class="cost">
                         <h3 class="h3">Итого</h3>
                         <svg class="total__dash" width="193" height="2" viewBox="0 0 380 2" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +158,7 @@
                         </svg>    
                         <h3 class="h3 violet totalcost">1498₽</h3>
                     </div>
-                </div>
+                </div> -->
                 <button class="button oops__button phoneinput__button" onclick="ym(73362754,'reachGoal','order')">Вызвать онлайн</button>
             </div>
             <div class="phone component">

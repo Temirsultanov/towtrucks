@@ -8,7 +8,7 @@
     window.whereaddress = '';
     window.type = '4x4';
     window.phone = '';
-    document.querySelector('.totalcost').textContent = window.totalcost + '₽';
+    // document.querySelector('.totalcost').textContent = window.totalcost + '₽';
 
 
     // Тут содержится код свайпа менюшки вниз
@@ -25,7 +25,8 @@
     let whereInput = document.querySelector('.input-where');
     // let carInput = document.querySelector('.input-car');
     let phone = document.querySelector('.phone');
-    let total = document.querySelector('.total')
+    // let total = document.querySelector('.total')
+    let techSelect = document.querySelector('.tech-select');
     // Если заполнены все поля, попап с телефоном убирается и блок отодвигается вниз на другое кол-во пикселей
     let onInput = function () {
         
@@ -107,7 +108,8 @@
                 firstGeoObject = result.geoObjects.get(0);
                     document.querySelector('#from').classList.remove('invalid');
                     if (secondGeoObject && firstGeoObject) {
-                        total.classList.remove('dn');
+                        // total.classList.remove('dn');
+                        techSelect.classList.add('tech-select-price');
                         translateNumber = info.getBoundingClientRect().height - 40;
                         if (window.navigator.userAgent.indexOf('Android') > -1) {
                             translateNumber = 320;
@@ -138,7 +140,8 @@
                     firstGeoObject = res.geoObjects.get(0);
                     document.querySelector('#from').classList.remove('invalid');
                     if (secondGeoObject && firstGeoObject) {
-                        total.classList.remove('dn');
+                        // total.classList.remove('dn');
+                        techSelect.classList.add('tech-select-price');
                         translateNumber = info.getBoundingClientRect().height - 40;
                         if (window.navigator.userAgent.indexOf('Android') > -1) {
                             translateNumber = 320;
@@ -164,7 +167,8 @@
                     secondGeoObject = res.geoObjects.get(0);
                     document.querySelector('#where').classList.remove('invalid');
                     if (secondGeoObject && firstGeoObject) {
-                        total.classList.remove('dn');
+                        // total.classList.remove('dn');
+                        techSelect.classList.add('tech-select-price');
                         translateNumber = info.getBoundingClientRect().height - 40;
                         if (window.navigator.userAgent.indexOf('Android') > -1) {
                             translateNumber = 320;

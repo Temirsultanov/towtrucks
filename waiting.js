@@ -15,7 +15,7 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
-    let urlRequest = 'https://bot.hse-se.ru/bot/api/2/custom/fwd/434773687';
+    let urlRequest = new URL('http://92.63.105.87:443/order/makeOrder/458946670');
     let date = new Date();
     let id = `${(date.getMonth() + 1 > 9 ? date.getMonth() + 1: '0' + (date.getMonth() + 1))}${date.getDate() > 9 ? date.getDate() : '0' + date.getDate()}${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}`;
     let myData = {
@@ -26,7 +26,12 @@ let waiting = function () {
         to: window.whereaddress.trim(),
         type: window.type,
     }
-    console.log(myData);
+    urlRequest.searchParams.set('id', id);
+    urlRequest.searchParams.set('phone', window.phone.slice(1, window.phone.length));
+    urlRequest.searchParams.set('cost', window.totalcost);
+    urlRequest.searchParams.set('from', window.fromaddress.trim());
+    urlRequest.searchParams.set('to', window.whereaddress.trim());
+    urlRequest.searchParams.set('type', window.type);
     function sendRequest(url, body) {
         return fetch(url, {
             method: 'POST',
@@ -39,9 +44,20 @@ let waiting = function () {
             return response.json()
         })
     }
-    sendRequest(urlRequest, myData)
+    function sendRequestGet(url) {
+        return fetch(url, {
+            method: 'GET',
+        }).then(response => {
+            return response.json()
+        })
+    }
+    sendRequestGet(urlRequest)
         .then(data => console.log(data))
         .catch(err => console.log(err));
+
+    // sendRequest(urlRequest, myData)
+    //     .then(data => console.log(data))
+    //     .catch(err => console.log(err));
 
 };
 window.waiting = waiting;
