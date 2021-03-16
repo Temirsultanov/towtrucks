@@ -15,7 +15,8 @@ let waiting = function () {
         }
         timer.textContent = `Осталось примерно: ${minute > 9 ? minute : '0' + minute}:${second > 9 ? second : '0' + second}`
     }, 1000);
-    let urlRequest = new URL('http://92.63.105.87:443/order/makeOrder/458946670');
+    let urlRequest = new URL('http://92.63.105.87:443/order/makeOrder/434773687');
+    let secondUrlRequest = new URL('http://92.63.105.87:443/order/makeOrder/293547055');
     let date = new Date();
     let id = `${(date.getMonth() + 1 > 9 ? date.getMonth() + 1: '0' + (date.getMonth() + 1))}${date.getDate() > 9 ? date.getDate() : '0' + date.getDate()}${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}`;
     let myData = {
@@ -32,6 +33,12 @@ let waiting = function () {
     urlRequest.searchParams.set('from', window.fromaddress.trim());
     urlRequest.searchParams.set('to', window.whereaddress.trim());
     urlRequest.searchParams.set('type', window.type);
+    secondUrlRequest.searchParams.set('id', id);
+    secondUrlRequest.searchParams.set('phone', window.phone.slice(1, window.phone.length));
+    secondUrlRequest.searchParams.set('cost', window.totalcost);
+    secondUrlRequest.searchParams.set('from', window.fromaddress.trim());
+    secondUrlRequest.searchParams.set('to', window.whereaddress.trim());
+    secondUrlRequest.searchParams.set('type', window.type);
     function sendRequest(url, body) {
         return fetch(url, {
             method: 'POST',
@@ -54,6 +61,10 @@ let waiting = function () {
     sendRequestGet(urlRequest)
         .then(data => console.log(data))
         .catch(err => console.log(err));
+
+    sendRequestGet(secondUrlRequest)
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
 
     // sendRequest(urlRequest, myData)
     //     .then(data => console.log(data))
