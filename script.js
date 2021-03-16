@@ -13,11 +13,11 @@
 
     // Тут содержится код свайпа менюшки вниз
     let info = document.querySelector('.order__content');
-    let translateNumber = info.getBoundingClientRect().height - 40;
+    let translateNumber = info.getBoundingClientRect().height - 200;
     let where = document.querySelector('#where');
     let from = document.querySelector('#from');
     let onInputChange = function () {
-        window.translateNumber = info.getBoundingClientRect().height - 40;
+        window.translateNumber = info.getBoundingClientRect().height - 200;
     }
     from.addEventListener('change', onInputChange);
     where.addEventListener('change', onInputChange);
@@ -50,10 +50,11 @@
                     // info.style.transform = '-100%';
                     closed = true;
                 }
-                else{
+                else if (translate > 0){
                     info.style.transform = 'translateY(0px)';
                     translate = 0 ;
                 }
+
             }
             else{
                 info.style.transform = 'translateY(0px)';
@@ -70,7 +71,7 @@
             curCoord = evt.clientY || evt.touches[0].pageY;
             translate+=(curCoord - startCoord);
             // document.write(evt.clientY, ' --- ',startCoord);
-            if (translate > 0 && translate < translateNumber) {
+            if (translate > -160 && translate < translateNumber) {
                 info.style.transform = `translateY(${translate}px)`;
             }
             startCoord = curCoord;
@@ -110,10 +111,7 @@
                     if (secondGeoObject && firstGeoObject) {
                         // total.classList.remove('dn');
                         techSelect.classList.add('tech-select-price');
-                        translateNumber = info.getBoundingClientRect().height - 40;
-                        if (window.navigator.userAgent.indexOf('Android') > -1) {
-                            translateNumber = 320;
-                        }
+                        translateNumber = info.getBoundingClientRect().height - 200;
                     }
                     firstGeoObject.options.set('iconLayout', 'default#image');
                     firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
@@ -142,10 +140,7 @@
                     if (secondGeoObject && firstGeoObject) {
                         // total.classList.remove('dn');
                         techSelect.classList.add('tech-select-price');
-                        translateNumber = info.getBoundingClientRect().height - 40;
-                        if (window.navigator.userAgent.indexOf('Android') > -1) {
-                            translateNumber = 320;
-                        }
+                        translateNumber = info.getBoundingClientRect().height - 200;
                     }
                     firstGeoObject.options.set('iconLayout', 'default#image');
                     firstGeoObject.options.set('iconImageHref', 'images/darklocation.svg');
@@ -169,10 +164,7 @@
                     if (secondGeoObject && firstGeoObject) {
                         // total.classList.remove('dn');
                         techSelect.classList.add('tech-select-price');
-                        translateNumber = info.getBoundingClientRect().height - 40;
-                        if (window.navigator.userAgent.indexOf('Android') > -1) {
-                            translateNumber = 320;
-                        }
+                        translateNumber = info.getBoundingClientRect().height - 200;
                     }
                     secondGeoObject.options.set('iconLayout', 'default#image');
                     secondGeoObject.options.set('iconImageHref', 'images/violetlocationmap.svg');
