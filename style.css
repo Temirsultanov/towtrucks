@@ -1,0 +1,598 @@
+/* Подключение шрифтов */
+@font-face{
+    src: url('fonts/CeraPro-Regular.woff');
+    font-family: 'Cera Pro';
+    font-weight: normal;
+}
+@font-face{
+    src: url('fonts/CeraPro-Bold.woff');
+    font-family: 'Cera Pro';
+    font-weight: 700;
+}
+
+
+/* CSS */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    box-sizing: border-box;
+    --font: 'Cera Pro';
+    font-family: var(--font);
+    font-size: 16px;
+    --violet: #9D4ACF;
+    --lightviolet: #f0e4f8;
+    --white: #ffffff;
+    --dark: #222222;
+    --black: #000000;
+    --grey: #e6e6e6;
+    --lightgrey: #f2f2f2;
+    --lightblacktext: #444444;
+    --cashtext: #333333;
+    --greytext: #828282;
+    --bordercolor: #d1d1d1;
+    --width: calc(100% - 30px);
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+    /* background-color: rgba(230, 105, 105, 0.479); */
+}
+
+/* Сброс */
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    margin: 0;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Общие классы */
+.component{
+   width: var(--width);
+   max-width: 400px;
+   background-color: #fff;
+   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+.button{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    background-color: var(--violet);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.h1{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+}
+.h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+}
+.h3{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 20px;
+}
+.h4{
+    font-weight: normal;
+    color: var(--lightblacktext);
+}
+.h5{
+    color: var(--cashtext);
+    font-size: 16px;
+}
+.h6{
+    color: var(--black);
+    font-weight: normal;
+}
+.violet{
+    color: var(--violet)
+}
+.fill-violet{
+    fill: var(--violet);
+}
+.input{
+    background-color: var(--lightgrey);  
+    border-radius: 10px;
+    padding: 11px 12px 12px 52px;
+    width: 100%;
+    height: 44px;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    margin-bottom: 9px;
+    font-size: 16px;
+    font-family: var(--font);
+    color: var(--lightblacktext);
+    border: 1px solid var(--lightgrey);
+    transition: border 0.3s ease;
+}
+.input::placeholder{
+    font-size: 16px;
+    color: var(--greytext);
+}
+.swipe-handle{
+    width: 53px;
+    height: 7px;
+    background-color: var(--grey);
+    border-radius: 10px;
+}
+.dn{
+    display: none !important; 
+}
+.invalid{
+    border: 1px solid #FF3333;
+}
+
+/* Начало */
+
+.map{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.map-iframe{
+    width: 100%;
+    height: 100%;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.order__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: -140px;
+    min-height: fit-content;
+    z-index: 5;
+    min-width: 340px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;  
+    -khtml-user-select: none;   
+    -moz-user-select: none;     
+    -ms-user-select: none;   
+    user-select: none;  
+}
+.order-on-top{
+    top: 25px;
+}
+/* Вызов звонка */
+.phone{
+    padding: 29px 20px;
+    margin-top: 17px;
+}
+.phone__text{
+    padding: 0 0px;
+    margin-bottom: 22px;
+}
+.phone__text .h2{
+    margin-bottom: 10px;
+}
+/* Вызов эвакуатора */
+.summon{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    min-height: 280px;
+    padding: 12px 18px 22px;
+}
+.summon .swipe-handle{
+    margin: 0 auto 8px;
+}
+.summon .h1{
+    margin-bottom: 16px;
+    text-align: center;
+}
+.summon .input{
+    background-repeat: no-repeat;
+    background-position: 18px 10px;
+}
+.input-car{
+    background-image: url(images/car.svg);
+}
+.input-from{
+    background-image: url(images/location.svg);
+}
+.input-where{
+    background-image: url(images/violetlocation.svg);
+}
+.car__buttons{
+    border-radius: 50px;
+    border: 1px solid #cacaca;
+    color: #919191;
+    background-color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 13px;
+    outline: 0;
+}
+.car__buttons-active{
+    background-color: var(--violet);
+    border-color: var(--violet);
+    color: white;
+    font-weight: 700;
+}
+.car-select{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.tech-select{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: var(--black);
+}
+.tech__item{
+    width: 95px;
+    height: 85px;
+    background-color: var(--lightgrey);
+    border-radius: 10px;
+    padding: 10px 10px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: 0.3s ease border-color;
+}
+.tech__item-active{
+    border-color: var(--violet);
+}
+.tech__name{
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 16px;
+}
+.tech__desc{
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 18px;
+}
+.tech__img{
+    position: absolute;
+    bottom:0;
+    right: 0;
+}
+.tech__price{
+    color: var(--violet);
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 0px;
+    display: block;
+}
+.tech-select-price .tech__price{
+    display: block;
+}
+.tech__text{
+    font-weight: 700;
+    line-height: 15px;
+    font-size: 12px;
+}
+.onlycash{
+    display: flex;
+    padding-left: 0px;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.rubsign{
+    border: 1px solid var(--cashtext);
+    border-radius: 4px;
+    width: 24px;
+    height: 20px;
+    text-align: center;
+    margin-right: 11px;
+}
+.rubsign.h6{
+    line-height: 18px;
+}
+.total{
+    width: 100%;
+    margin-top: 10px;
+}
+.summon .phoneinput__button{
+    margin-top: 19px;
+}
+.total__dash{
+    width: calc(100% - 110px);
+    margin-top: 4px;
+}
+.cost{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+/* Упс! */
+.oops__wrap, .cash__wrap, .phoneinput__wrap{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0, 0.5);
+}
+.button-phone{
+    background-color: #F2F2F2;
+    color: black;
+}
+.oops{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 180px;
+    padding: 40px 30px;
+}
+.oops .h1, .cash .h1, .phoneinput .h1{
+    margin-bottom: 12px;
+}
+.oops .h4, .cash .h4, .phoneinput .h4{
+    text-align: center;
+}
+.cash .button{
+    margin-top: 18px;
+}
+.cash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+}
+.phoneinput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+}
+.phoneinput .input{
+    margin-top: 20px;
+}
+.phoneinput .button{
+    margin-top: 15px;
+}
+.phoneinput .h4{
+    width: 280px;
+}
+.input-phone{
+    background-image: url(images/phone.svg);
+    background-repeat: no-repeat;
+    background-position: 18px 10px; 
+}
+.searching .h4{
+    color: white;
+    margin-top: 17px;
+}
+.searching{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loading svg{
+    animation: loading 1s infinite;
+}
+@keyframes loading{
+    0%{
+
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.drive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;   
+}
+.drive .button{
+    margin-top: 26px;
+}
+.drive .h1{
+    margin-bottom: 4px;
+}
+.drive .timer{
+    font-size: 18px;
+    color: var(--greytext);
+    margin-bottom: 15px;
+}
+.info{
+    margin-top: 25px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.info__price{
+    border: 2px solid #f4f4f4;
+    width: 103px;
+    height: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.info__addresses{
+    display: flex;
+    width: calc(100% - 108px);
+    flex-direction: column;
+    justify-content: space-between;
+}
+.whereaddress, .fromaddress{
+    display: flex;
+    align-items: center;
+}
+.whereaddress .h4, .fromaddress .h4{
+    margin-left: 10px;
+}
+.whereaddress{
+    margin-bottom: 5px;
+}
+.fromaddress{
+    margin-top: 5px;
+}
+.drive__wrap{
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    /* left: 0; */
+    /* width: 100%; */
+    display: flex;
+    max-width: 400px;
+    width: calc(100% - 30px);
+    justify-content: center;
+    padding-bottom: 15px;
+}
+.drive{
+    width: 100%;
+}
+.animation{
+    position: relative;
+    overflow: hidden;
+}
+.rightwheel{
+    animation: 0.5s wheel linear infinite;
+    position: absolute;
+    left: 159px;
+    top: 65px;
+    z-index: 4;
+}
+.leftwheel{
+    position: absolute;
+    animation: 0.5s wheel linear infinite;
+    top: 65px;
+    z-index: 4;
+    left: 92px;
+}
+@keyframes wheel{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#houselast{
+    animation: houselast 2s 1.6s infinite linear;
+}
+@keyframes houselast{
+    100%{
+        transform: translateX(-350px);
+    }
+}
+#housefirst{
+    animation: houselast 2s infinite linear;
+}
+#house2{
+    animation: houselast 2s 0.5s infinite linear;
+}
+#house3{
+    animation: houselast 2s 0.6s infinite linear;
+}
+#house4{
+    animation: houselast 2s 1.5s infinite linear;
+}
+.body-detail{
+    animation: 1s body infinite ease;
+}
+@keyframes body{
+    0%{
+        transform: translateY(0px);   
+    }
+    30%{
+        transform: translateY(1px) translateX(1px) rotate(1deg);   
+    }
+    /* 50%{
+        transform: translateY(0px);
+    } */
+    70%{
+        transform: translateY(0px) rotate(-1deg);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.hook-detail{
+    animation: 1s hook infinite ease;
+    left: 96px;
+    position: absolute;
+    top: 16px;
+    z-index: 2;
+    transform-origin: 6px 0px;
+}
+@keyframes hook{
+    30%{
+        transform: translate(1px) translate(1px) rotate(10deg);
+    }
+    60%{
+        transform: rotate(-10deg);
+    }
+    70%{
+        transform: translateY(0px) rotate(-7.5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.maincar{
+    position: relative;
+    z-index: 3;
+}
+.houses{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+}
+.info__addresses .h4{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* height: 20px; */
+    max-width: calc(100% - 34px);
+}
+.lt-phonemask-group{
+    width: 100%;
+    position: relative;
+}
+.lt-phonemask{
+    font-family: monospace;
+}
+.lt-phonemask-text{
+    position: absolute;
+    left: 53px;
+    color: var(--lightblacktext);
+    font-family: monospace;
+    top: 16.5px;
+}
