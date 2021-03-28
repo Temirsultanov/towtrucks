@@ -605,3 +605,11 @@ a{
     font-family: monospace;
     top: 4.5px;
 }
+@media only screen and (max-width: 359px) {
+    .tech__desc{
+        font-size: 13px;
+    }
+    .phone .h4{
+        font-size: 14px;
+    }
+}
